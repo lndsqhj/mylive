@@ -3,8 +3,8 @@
 
 {
   "站名": "麻豆映画",
-  "主页url": "https://www.madoupj.com",
-  "分类url":"https://www.madoupj.com/index.php/&m=vodtype/{cateId}/page/{catePg}.html",
+  "主页url": "https://7fbn7.mdpj-mupx.buzz/",
+  "分类url":" https://7fbn7.mdpj-mupx.buzz/index.php/&m=vodtype/{cateId}/page/{catePg}.html",
   "分类":"麻豆原创$mdapp1#原创伙伴$mdapp2#节目企划$mdapp3#国产片商$mdapp32",
 
   "数组":"<div class=\"col-sm-4\">&&</div>",
@@ -33,7 +33,7 @@
   "播放数组": "body&&</body>",
   "播放列表": "player_data&&views-comments[替换:12345>>空]",
   "播放标题": "title=\"&&\"",
-  "播放请求头":"referer$https://www.madoupj.com/",
+  "播放请求头":"referer$https://7fbn7.mdpj-mupx.buzz/",
   "播放链接": "Base64(url\":\"&&\")[替换:incex>>1000kb/hls/index]",
   
   "免嗅":"1",
@@ -227,4 +227,4 @@
       }
     ]
   }
-}
+  }
