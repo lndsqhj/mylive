@@ -22,7 +22,7 @@
 "搜索链接前缀":"https://www.txcyeat.buzz/",
 "搜索链接后缀":"",
 "简介":"<p>&&</p>",
-"分类url":"https://www.txcyeat.buzz/index.php/vodsearch/{wd}----------{pg}---.html",
+"分类url":"https://www.txcyeat.buzz/index.php/actordetail/{cateId}-{catePg}.html;;z",
 "免嗅":"0",
 "筛选":{
 "1":[
