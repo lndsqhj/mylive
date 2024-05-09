@@ -22,7 +22,7 @@
 "搜索链接前缀":"https://www.txcyeat.buzz/",
 "搜索链接后缀":"",
 "简介":"<p>&&</p>",
-"分类url":"https://49jjkk.vip/xjzy/vod/search/page/{catePg}/wd/{wd}.html",
+"分类url":"https://www.txcyeat.buzz/index.php/vodsearch/{wd}----------{pg}---.html",
 "免嗅":"0",
 "筛选":{
 "1":[
