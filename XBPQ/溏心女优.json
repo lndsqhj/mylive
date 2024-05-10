@@ -22,8 +22,10 @@
 "搜索链接前缀":"https://www.txcyeat.buzz/",
 "搜索链接后缀":"",
 "简介":"<p>&&</p>",
+//新增
+"嗅探词": "cdn2020.com#m3u8",
 "分类url":"https://www.txcyeat.buzz/index.php/actordetail/{catePg}.html;;z",
-"免嗅":"0",
+//"免嗅":"0",
 "筛选":{
 "1":[
 {
