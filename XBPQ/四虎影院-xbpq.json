@@ -3,8 +3,8 @@
 {
   "站名": "四虎影院",
   "头部集合": "user-agent$Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
-  "主页url": "https://www.4fa14.com/Enter/home.html",
-  "分类url": "https://www.4fa14.com/{cateId}/{class}/index_{catePg}.html[https://www.4fa14.com/{cateId}/{class}/index.html]",
+  "主页url": "https://www.4hu.tv/Enter/home.html",
+  "分类url": "https://www.4hu.tv/{cateId}/{class}/index_{catePg}.html[https://www.4hu.tv/{cateId}/{class}/index.html]",
   "分类": "国产$video#女优$av#电影$movie#onlyfans$onlyfans",
   
   "二次截取": "class=\"row&&</body>",
