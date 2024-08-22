@@ -3,7 +3,7 @@
 "站名": "直播秀API",
 "请求头": "手机",
 "播放请求头": "手机",
-"主页url":"http://api.hclyz.com:81/mf/jsonmangguopai.txt",
+"主页url":"http://api.hclyz.com:81/mf/yuncaidan.txt",
 "分类url":"http://api.hclyz.com:81/mf/{cateId}",
 "分类":"直播$json.txt",
     
