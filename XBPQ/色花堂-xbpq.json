@@ -13,8 +13,8 @@
 //99gaokk@gmail.com
 {
 "站名":"色花堂",
-"主页url":"https://11gaokk.com/index.html",
-"分类url":"https://11gaokk.com//{cateId}_{catePg}.html[https://11gaokk.com//{cateId}.html]",
+"主页url":"https://www.kikgru.com/index.html",
+"分类url":"https://www.kikgru.com/index.html/{cateId}_{catePg}.html[https://www.kikgru.com/index.html/{cateId}.html]",
 
 "分类二次截取": "nav-menu-line free&&nav-menu-line tese",
 "分类数组": "<li>&&</li>",
