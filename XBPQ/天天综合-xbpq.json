@@ -1,0 +1,177 @@
+// https://yyrzb.vip/
+
+{
+  
+"请求头": "手机",
+"播放请求头": "手机",
+  
+"站名":"天天聚合",
+"主页url":"https://yyrav3.cc/",
+"分类url":"https://yyrav3.cc/{cateId}-{catePg}.html[https://yyrav2.cc/{cateId}]",
+  
+"分类": "中文字幕$/cn/#超清资源$/hd/#水果派解说$/shui/#国产传媒$/mdav/#久久热$/99sp/#废柴资源$/fcsp/",
+  
+//"分类二次截取": "实时直播&&激情小说",
+//"分类数组": "<a&&</a>",
+//"分类标题": "\">&&</",
+//"分类ID": "href=\"&&?",
+  
+"二次截取":"list-videos&&</div></div></div>",
+"数组":"<a style&&</a>",
+"标题":"title=\"&&\"",
+"副标题":"<div class=\"duration\">&&</div>",
+"图片":"data-original=\"&&\"",
+"链接":"href=\"&&\"",
+"链接前缀":"",
+"链接后缀":"",
+
+"搜索url":"/so{wd}/page/{pg}.html",
+"搜索后缀":"",
+"搜索模式":"1",
+"搜索二次截取":"list-videos&&</div></div></div>",
+"搜索数组":"class=\"item\"&&views",
+"搜索图片":"data-original=\"&&\"",
+"搜索标题":"title=\"&&\"",
+"搜索链接": "href=\"&&\"",
+"搜索副标题":"<div class=\"duration\">&&</div>",
+"搜索链接前缀":"",
+"搜索链接后缀":"",
+  
+"线路数组":"",
+"线路标题":"",
+  
+"播放数组": "player_aaaa&&</script>",
+"影片年代":"年份：&&</li>",
+"影片地区":"地区：&&</li>",
+"影片类型":"类型：&&</li>",
+"导演":"导演：&&</li>",
+"主演":"主演：&&</li>",
+"简介":"简介：&&</li>",
+"播放列表": "vod_class&&server[替换:.comrn>>.com#fcjx>>fcw/#99_>>99/#juyou>>空#cq>>cq/#xjzym3u8>>p2p.php#xvideo>>xvideo/]",
+"播放标题": "直接播放",
+//"播放链接": "url\":\"&&\"",
+"播放链接前缀":"",
+"播放链接后缀":"",
+"播放链接": "https://ppyy01.vip/+from\":\"&&\",+?url=+url\":\"&&\"",
+"免嗅":"0",
+"嗅探词":".m3u8#.mp4#.flv#.m4a#.avi#.mkv#.mov#.3gp#.asf#.rm#.rmvb#.wmv#.mpg#.mpeg#.mpe#.ts#.vob#.mp3#.wma",
+"过滤词":"",
+  
+"筛选":{
+  "/cn/": [
+    {
+      "key": "cateId",
+      "name": "",
+      "value": [
+        {"n": "全部","v": "/cn/" },
+        {"n": "解说原片","v": "/cn/clm-jieshuoyuanpian" },
+        {"n": "3D同人","v": "/cn/clm-3Dtongren" },
+        {"n": "中文无码","v": "/cn/clm-zhongwenwuma" },
+        {"n": "中文综合","v": "/cn/clm-zhongwenzonghe" },
+        {"n": "中文近亲","v": "/cn/clm-zhongwenjingqing" },
+        {"n": "中文护士","v": "/cn/clm-zhongwenhushi" },
+        {"n": "中文师生","v": "/cn/clm-zhongwenshisheng" },
+        {"n": "中文强奸","v": "/cn/clm-zhongwenqiangjian" },
+        {"n": "明星淫梦","v": "/cn/clm-mingxingyinmeng" },
+        {"n": "国产自拍","v": "/cn/clm-guochanzipai" },
+        {"n": "三级伦理","v": "/cn/clm-sanjizonghe"}
+      ]
+    }
+  ],
+  "/hd/": [
+    {
+      "key": "cateId",
+      "name": "",
+      "value": [
+        {"n": "全部","v": "/hd/" },
+        {"v": "/hd/hlm-yazhou","n": "亚洲ＡＶ" },
+        {"v": "/hd/hlm-zipaitoupai","n": "自拍偷拍" },
+        {"v": "/hd/hlm-chaoqingchuanmei","n": "超清传媒" },
+        {"v": "/hd/hlm-3Ddongman","n": "3D动漫" },
+        {"v": "/hd/hlm-oumei","n": "欧美ＡＶ" },
+        {"v": "/hd/hlm-luanlunrenqi","n": "乱伦人妻" },
+        {"v": "/hd/hlm-siwazhifu","n": "丝袜制服" },
+        {"v": "/hd/hlm-zhibolubo","n": "直播录播" },
+        {"v": "/hd/hlm-SMlinglei","n": "SM另类" },
+        {"v": "/hd/hlm-chaoqingsanji","n": "超清三级" }
+      ]
+    }
+  ],
+    "/shui/": [
+    {
+      "key": "cateId",
+      "name": "",
+      "value": [
+        {"n": "全部","v": "/shui/" },
+        {"n": "水果ΠAV解说","v": "/shui/jlm-AVJS"}
+      ]
+    }
+  ],
+    "/mdav/": [
+    {
+      "key": "cateId",
+      "name": "",
+      "value": [
+        {"n": "全部","v": "/mdav/" },
+        {"v": "/mdav/mlm-madouyuanchuang","n": "综合传媒"},
+       {"v": "/mdav/mlm-91zhipianchang","n": "91制片厂"},
+       {"v": "/mdav/mlm-xingbayuanchuang","n": "杏吧原创"},
+       {"v": "/mdav/mlm-tangxinVlgo","n": "糖心Vlgo"},
+       {"v": "/mdav/mlm-tianmeichuanmei","n": "天美传媒"},
+       {"v": "/mdav/mlm-mitaochuanmei","n": "蜜桃传媒"},
+       {"v": "/mdav/mlm-xingkongchuanmei","n": "星空传媒"},
+       {"v": "/mdav/mlm-jingdongyingye","n": "精东影业"},
+       {"v": "/mdav/mlm-tuzixiansheng","n": "兔子先生"},
+       {"v": "/mdav/mlm-daxiangchuanmei","n": "大象传媒"}
+      ]
+    }
+  ],
+    "/99sp/": [
+    {
+      "key": "cateId",
+      "name": "",
+      "value": [
+        {"n": "全部","v": "/99sp/" },
+        {"v": "/99sp/9lm-guochanzipai","n": "国产自拍"},
+        {"v": "/99sp/9lm-oumei","n": "欧美"},
+        {"v": "/99sp/9lm-zhongwenzimu","n": "中文字幕"},
+        {"v": "/99sp/9lm-lizongruiquanji","n": "李宗瑞全集"},
+        {"v": "/99sp/9lm-ribenwuma","n": "日本无码"},
+        {"v": "/99sp/9lm-jialebi","n": "加勒比"},
+        {"v": "/99sp/9lm-ribenyouma","n": "日本有码"},
+        {"v": "/99sp/9lm-yibendao","n": "一本道"},
+        {"v": "/99sp/9lm-gaoqing","n": "高清"},
+        {"v": "/99sp/9lm-chaochui","n": "潮吹"},
+        {"v": "/99sp/9lm-jiujiurehuiyuanrenzhengzuopin","n": "会员认证作品"},
+        {"v": "/99sp/9lm-zhifusiwa","n": "制服丝袜"},
+        {"v": "/99sp/9lm-koubaoyanshe","n": "口爆颜射"},
+        {"v": "/99sp/9lm-gangjiao","n": "肛交"},
+        {"v": "/99sp/9lm-dongjingre","n": "东京热"},
+        {"v": "/99sp/9lm-xiaogeshizonghe","n": "小格式综合"},
+        {"v": "/99sp/9lm-hanguonvzhuboxilie","n": "女主播系列"},
+        {"v": "/99sp/9lm-chengrendongman","n": "成人动漫"},
+        {"v": "/99sp/9lm-SMxingnue","n": "SM性虐"},
+        {"v": "/99sp/9lm-hanguozonghe","n": "韩国综合"}
+      ]
+    }
+  ],
+    "/fcsp/": [
+    {
+      "key": "cateId",
+      "name": "",
+      "value": [
+        {"n": "全部","v": "/fcsp/" },
+        {"v": "/fcsp/flm-VIPzhuanqu","n": "VIP专区"},
+        {"v": "/fcsp/flm-toupaixilie","n": "偷拍系列"},
+        {"v": "/fcsp/flm-guochanzipai","n": "国产自拍"},
+        {"v": "/fcsp/flm-ribenyouma","n": "日本有码"},
+        {"v": "/fcsp/flm-ribenwuma","n": "日本无码"},
+        {"v": "/fcsp/flm-chengrendongman","n": "成人动漫"},
+        {"v": "/fcsp/flm-hanguozonghe","n": "韩国综合"},
+        {"v": "/fcsp/flm-VRzhuanqu","n": "VR专区"},
+        {"v": "/fcsp/flm-oumei","n": "欧美"}
+      ]
+    }
+  ]
+}
+}

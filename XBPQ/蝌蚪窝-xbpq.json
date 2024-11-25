@@ -1,0 +1,53 @@
+
+{
+"请求头": "user-agent#Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Mobile Safari/537.36",
+
+"站名":"蝌蚪窝",
+"主页url":"https://www.xiaobi148.com/categories/",
+"分类url":"https://www.xiaobi148.com/categories/{cateId}/{catePg}/",
+//"分类":"swag$swag",
+"分类二次截取": "list-categories&&tags-cloud",
+"分类数组": "<a&&</a>",
+"分类标题": "title=\"&&\"",
+"分类ID": "href=*categories/&&/",
+
+"二次截取":"list_videos_common_videos_list_items&&pagination-holder",
+"数组":"class=\"item&&class=\"views",
+"图片":"src=\"&&\"",
+"标题":"alt=\"&&\"",
+"副标题":"duration\">&&</div>",
+"链接":"href=\"&&\"",
+"链接前缀":"",
+"链接后缀":"",
+
+"搜索url":"/search/{wd}/?sort_by=1&from_videos={pg}",
+"搜索后缀":"",
+"搜索模式":"1",
+"搜索二次截取":"list_videos_videos_list_search_result_items&&pagination-holder",
+"搜索数组":"class=\"item&&class=\"views",
+"搜索图片":"src=\"&&\"",
+"搜索标题":"alt=\"&&\"",
+"搜索副标题":"duration\">&&</div>",
+"搜索链接": "href=\"&&\"",
+"搜索链接前缀":"",
+"搜索链接后缀":"",
+  
+"线路数组":"",
+"线路标题":"",
+  
+"播放数组": "下载:&&</div>",
+"影片年代":"年份：&&</li>",
+"影片地区":"地区：&&</li>",
+"影片类型":"类型：&&</li>",
+"导演":"导演：&&</li>",
+"主演":"主演：&&</li>",
+"简介":"简介：&&</li>",
+"播放列表": "<a&&</a>",
+"播放标题": "直接播放",
+"播放链接": "href=\"&&.mp4+.mp4",
+"播放链接前缀":"",
+"播放链接后缀":"",
+"免嗅":"1",
+"嗅探词":"",
+"过滤词":""
+}

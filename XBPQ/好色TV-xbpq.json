@@ -1,0 +1,32 @@
+// 发布页:https://hsex.men/
+{
+    "站名":"好色TV",
+    "头部集合": "user-agent$Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+    "主页url":"https://hsex.icu",
+    "分类url":"https://hsex.icu/{cateId}-{catePg}.htm[https://hsex.icu/{cateId}-1.htm]",
+    "分类":"全部$list#周榜$top7_list#月榜$top_list#5分钟以上$5min_list#10分钟以上$long_list",
+
+    "数组":"col-xs-6 col-md-3\">&&class=\"info\">",
+    "标题":"title=\"&&\"",
+    "副标题":"duration\">&&</var>",
+    "图片":"background-image: url('&&')",
+    "链接前缀":"https://hsex.icu/",
+    "链接":"href=\"&&\"",
+      
+    "搜索url":"/search-{pg}.htm?search={wd}&sort=new",
+    "搜索模式":"1",
+    "搜索数组":"col-xs-6 col-md-3\">&&class=\"info\">",
+    "搜索标题":"title=\"&&\"",
+    "搜索副标题":"duration\">&&</var>",
+    "搜索图片":"background-image: url('&&')",
+    "搜索链接":"href=\"&&\"",
+    "搜索链接前缀": "https://hsex.icu/",
+        
+    "播放数组": "videos&&col-xs-12 hidden",
+    "播放列表": "video-play&&日期：",
+    "播放标题": "panel-title\">&&<",
+    "播放链接": "<source src=\"&&\"",
+
+    "免嗅": "1",
+    "嗅探词": ".m3u8"
+}

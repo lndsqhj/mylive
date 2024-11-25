@@ -1,0 +1,41 @@
+// 发布页: https://100gaoaa.com
+//https://24gaofa.com
+{
+"站名":"AV猫",
+"主页url":"https://20gaoab.com/",
+"分类url":"https://20gaoab.com/typegaoyy/{cateId}_{catePg}.html[https://www.67haoff.com/typegaoyy/{cateId}.html]",
+
+"分类二次截取": "<section&&</section>",
+"分类数组": "<li&&</li>",
+"分类标题": "\">&&</",
+"分类ID": "href=\"/typegaoyy/&&.html",
+
+"数组": "col-lg-3&&</a>[不包含:站长推荐]",
+"图片":"data-original=\"&&\"",
+"标题":"alt=\"&&\"",
+"链接":"href=\"&&\"",
+"副标题":"<div class=\"img-tag\">&&</div>",
+
+"搜索模式":"1",
+"搜索url":"/gaosearch/{wd}-/page/{pg}/",
+"搜索数组": "col-lg-3&&</a>[不包含:站长推荐]",
+"搜索图片": "data-original=\"&&\"",
+"搜索标题": "alt=\"&&\"",
+"搜索链接": "href=\"&&\"",
+"搜索副标题": "<div class=\"img-tag\">&&</div>",
+
+  
+"线路数组":"<div class=\"item line\">&&</div>",
+"线路标题":">&&</a>",
+
+"播放数组":"class=\"item line\">&&</div>",
+"影片类型":"target=\"_blank\">&&</a><i",
+"导演":"class=\"data\">类型：&&</p>",
+"主演":"class=\"data\">主演：&&</p>",
+"简介":"<h1>&&</h1>",
+"播放列表":"<a&&/a>",
+"播放标题":">&&<",
+"播放链接":"href=\"&&\"",
+  
+"免嗅":"0"
+}

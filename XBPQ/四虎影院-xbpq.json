@@ -1,0 +1,401 @@
+// 发布页:www.4hu.tv
+
+{
+  "站名": "四虎影院",
+  "头部集合": "user-agent$Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+  "主页url": "https://www.4hu.tv/Enter/home.html",
+  "分类url": "https://www.4hu.tv/{cateId}/{class}/index_{catePg}.html[https://www.4hu.tv/{cateId}/{class}/index.html]",
+  "分类": "国产$video#女优$av#电影$movie#onlyfans$onlyfans",
+  
+  "二次截取": "class=\"row&&</body>",
+  "数组": "<dl>&&</dl>",
+  "图片": "data-original=\"&&\"[替换:cover.txt>>poster2.jpg]",
+  "标题": "默认--Base64(d('&&'))||onlyfans--<h3>&&</h3>",
+  "副标题": "<i>&&</i>[替换:\\&\\#28909;\\&\\#38376;\\&\\#22899;\\&\\#20248;>>热门女优]",
+  "链接": "href=\"&&\"",
+
+  "搜索模式": "1",
+  "搜索url":"/searchs/index.php?page={pg}&keyboard={wd}&classid=",
+  "搜索数组": "<dl>&&</dl>[不包含:美腿丝袜#欧美色图#卡通图片#自拍偷拍#都市小说#乱伦小说#校园小说#人妻小说]",
+  "搜索图片": "https://img2.baidu.com/it/u=1857910173,2703468814&fm=253&fmt=auto&app=138&f=PNG?w=500&h=500",
+  "搜索标题": "_blank\">&&</a>",
+  "搜索副标题": "搜索无图+url\">&&</span></p-",
+  "搜索链接": "href=\"&&\"",
+
+  "线路数组": "class=\"item\">&&</div>",
+  "线路标题": "Base64(d('&&'))",
+  "播放数组": "class=\"item&&</div>",
+  "状态": "分类：</span>&&</p>",
+  "导演": "导演：</span>&&</p>",
+  "主演": "主演：</span>&&</p>",
+  "简介": "名称：&&</h3>",
+  "播放列表": "<a&&/a>",
+  "播放标题": "直接播放",
+  "播放链接": "href=\"&&\"",
+  "筛选": {
+    "video": [
+      {
+        "key": "class",
+        "name": "分类",
+        "value": [
+          {
+            "n": "全部",
+            "v": ""
+          },
+          {
+            "n": "自拍视频",
+            "v": "zipai"
+          },
+          {
+            "n": "淫妻作乐",
+            "v": "fuqi"
+          },
+          {
+            "n": "开放青年",
+            "v": "kaifang"
+          },
+          {
+            "n": "精品分享",
+            "v": "jingpin"
+          },
+          {
+            "n": "台湾辣妹",
+            "v": "twmn"
+          },
+          {
+            "n": "韩国主播",
+            "v": "krzb"
+          },
+          {
+            "n": "动漫卡通",
+            "v": "dongman"
+          },
+          {
+            "n": "经典三级",
+            "v": "sanji"
+          }
+        ]
+      }
+    ],
+    "av": [
+      {
+        "key": "class",
+        "name": "分类",
+        "value": [
+          {
+            "n": "全部",
+            "v": ""
+          },
+          {
+            "n": "女性向纯爱",
+            "v": "nxx"
+          },
+          {
+            "n": "GIGA女战士",
+            "v": "giga"
+          },
+          {
+            "n": "波多野结衣",
+            "v": "bdyjy"
+          },
+          {
+            "n": "深田咏美",
+            "v": "stym"
+          },
+          {
+            "n": "桥本有菜",
+            "v": "qbyc"
+          },
+          {
+            "n": "苍井空",
+            "v": "cjk"
+          },
+          {
+            "n": "三上悠亚",
+            "v": "ssyy"
+          },
+          {
+            "n": "吉泽明步",
+            "v": "jzmb"
+          }
+        ]
+      }
+    ],
+    "movie": [
+      {
+        "key": "class",
+        "name": "分类",
+        "value": [
+          {
+            "n": "全部",
+            "v": ""
+          },
+          {
+            "n": "无码中字",
+            "v": "wuma"
+          },
+          {
+            "n": "SM系列",
+            "v": "sm"
+          },
+          {
+            "n": "高清无码",
+            "v": "gaoqing"
+          },
+          {
+            "n": "熟女人妻",
+            "v": "shunv"
+          },
+          {
+            "n": "美颜巨乳",
+            "v": "meiyan"
+          },
+          {
+            "n": "丝袜制服",
+            "v": "siwa"
+          },
+          {
+            "n": "中字有码",
+            "v": "youma"
+          },
+          {
+            "n": "欧美系列",
+            "v": "oumei"
+          }
+        ]
+      }
+    ],
+    "onlyfans": [
+      {
+        "key": "class",
+        "name": "分类",
+        "value": [
+          {
+            "n": "全部",
+            "v": ""
+          },
+          {
+            "n": "lonelymeow",
+            "v": "lonelymeow"
+          },
+          {
+            "n": "funsizedasian",
+            "v": "funsizedasian"
+          },
+          {
+            "n": "funsizedtoy",
+            "v": "funsizedtoy"
+          },
+          {
+            "n": "coconutkitty",
+            "v": "coconutkitty"
+          },
+          {
+            "n": "layndare",
+            "v": "layndare"
+          },
+          {
+            "n": "anaimiya",
+            "v": "anaimiya"
+          },
+          {
+            "n": "chelseasexgirl",
+            "v": "chelseasexgirl"
+          },
+          {
+            "n": "raelilblackofficial",
+            "v": "raelilblackofficial"
+          },
+          {
+            "n": "hongkongdoll2",
+            "v": "hongkongdoll2"
+          },
+          {
+            "n": "mariwam",
+            "v": "mariwam"
+          }
+        ]
+      },
+      {
+        "key": "class",
+        "name": "",
+        "value": [
+          {
+            "n": "florarodgers",
+            "v": "florarodgers"
+          },
+          {
+            "n": "oliviawildin",
+            "v": "oliviawildin"
+          },
+          {
+            "n": "lilykawaii",
+            "v": "lilykawaii"
+          },
+          {
+            "n": "yuixxx312",
+            "v": "yuixxx312"
+          },
+          {
+            "n": "elisetutu69",
+            "v": "elisetutu69"
+          },
+          {
+            "n": "ruttedrabbit",
+            "v": "ruttedrabbit"
+          },
+          {
+            "n": "sexiris",
+            "v": "sexiris"
+          },
+          {
+            "n": "lilbabybluex",
+            "v": "lilbabybluex"
+          },
+          {
+            "n": "loliiiiipop99",
+            "v": "loliiiiipop99"
+          },
+          {
+            "n": "lilylarimar",
+            "v": "lilylarimar"
+          }
+        ]
+      },
+      {
+        "key": "class",
+        "name": "",
+        "value": [
+          {
+            "n": "lacykelly",
+            "v": "lacykelly"
+          },
+          {
+            "n": "envyanne",
+            "v": "envyanne"
+          },
+          {
+            "n": "hongkongdoll",
+            "v": "hongkongdoll"
+          },
+          {
+            "n": "daintywilder",
+            "v": "daintywilder"
+          },
+          {
+            "n": "yuzukitty",
+            "v": "yuzukitty"
+          },
+          {
+            "n": "u12239664",
+            "v": "u12239664"
+          },
+          {
+            "n": "elsadreamjean",
+            "v": "elsadreamjean"
+          },
+          {
+            "n": "joannasexycat",
+            "v": "joannasexycat"
+          },
+          {
+            "n": "sweetiefoxof",
+            "v": "sweetiefoxof"
+          },
+          {
+            "n": "u9712828",
+            "v": "u9712828"
+          }
+        ]
+      },
+      {
+        "key": "class",
+        "name": "",
+        "value": [
+          {
+            "n": "ellieleen1",
+            "v": "ellieleen1"
+          },
+          {
+            "n": "kirabee",
+            "v": "kirabee"
+          },
+          {
+            "n": "supersister520",
+            "v": "supersister520"
+          },
+          {
+            "n": "loverlaci",
+            "v": "loverlaci"
+          },
+          {
+            "n": "chocoletmilkk",
+            "v": "chocoletmilkk"
+          },
+          {
+            "n": "littlegee",
+            "v": "littlegee"
+          },
+          {
+            "n": "jessnjamez",
+            "v": "jessnjamez"
+          },
+          {
+            "n": "hhhhhtaiwanjapan",
+            "v": "hhhhhtaiwanjapan"
+          },
+          {
+            "n": "mollyredwolf",
+            "v": "mollyredwolf"
+          },
+          {
+            "n": "nicolovecc",
+            "v": "nicolovecc"
+          }
+        ]
+      },
+      {
+        "key": "class",
+        "name": "",
+        "value": [
+          {
+            "n": "oliviakeane",
+            "v": "oliviakeane"
+          },
+          {
+            "n": "mozzi",
+            "v": "mozzi"
+          },
+          {
+            "n": "bbooble",
+            "v": "bbooble"
+          },
+          {
+            "n": "anriokitareal",
+            "v": "anriokitareal"
+          },
+          {
+            "n": "hookup",
+            "v": "hookup"
+          },
+          {
+            "n": "retsudayo",
+            "v": "retsudayo"
+          },
+          {
+            "n": "xailormoon",
+            "v": "xailormoon"
+          },
+          {
+            "n": "emilyhill",
+            "v": "emilyhill"
+          },
+          {
+            "n": "bubu9191",
+            "v": "bubu9191"
+          }
+        ]
+      }
+    ]
+  }
+}

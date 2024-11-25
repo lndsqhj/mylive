@@ -1,0 +1,58 @@
+//【98堂】_永久免费_在线成人影院
+//地址发布页：
+//https://10gaokk.com
+//海外永久地址：
+//https://90gao.com
+//您的VIP专属地址：
+//https://11gaokk.com
+//https://12gaokk.com
+//https://13gaokk.com
+//https://14gaokk.com
+//https://www.67haoff.com/
+//问题反馈及地址找回邮箱：
+//99gaokk@gmail.com
+{
+"站名":"色花堂",
+"主页url":"https://www.kikgru.com/index.html",
+"分类url":"https://www.kikgru.com/typegaokk/{cateId}_{catePg}.html[https://www.kikgru.com/typegaokk/{cateId}.html]",
+
+//https://11gaokk.com/typegaokk/{cateId}_{catePg}.html[https://11gaokk.com/typegaokk/{cateId}.html
+  
+"分类二次截取": "nav-menu-line free&&nav-menu-line tese",
+"分类数组": "<li>&&</li>",
+"分类标题": "\">&&</",
+"分类ID": "href=\"&&.html",
+  
+//"分类":"国产精品&日韩亚洲&自拍偷拍&欧美激情&主播视频&中文字幕&日韩无码&动漫成人&推荐视频&同性人妖&欧美大片&原创国产&制服淫穴&换脸AI区&三级综艺&次元动漫",
+//"分类值":"1&2&15&3&16&4&11&14&5&6&7&8&9&10&12&13",
+
+"分类": "国产精品$1#日韩亚洲$2#自拍偷拍$15#欧美激情$3#主播视频$16#中文字幕$4#日韩无码$11#动漫成人$14#推荐视频$5#同性人妖$6#欧美大片$7#原创国产$8#制服淫穴$9#换脸AI区$10#三级综艺$12#次元动漫$13",
+
+  
+
+"数组":"<div class=\"img-box cover-md\">&&</h6>",
+"图片":"data-original=\"&&\"",
+"标题":"<h6 class=\"title\">&&</a>",
+"副标题":"<div class=\"ribbon-top-left\">&&</div>",
+"链接":"href=\"&&\"",
+
+  
+"线路数组":"<div class=\"item line\">&&</div>[排序:线路一>线路二>线路三]",
+"线路标题":">&&</a>",
+
+"搜索url":"/vodsearch/{wd}----------{pg}---.html",
+"搜索模式":"1",
+"搜索数组":"<div class=\"img-box cover-md\">&&</h6>",
+"搜索标题":"<h6 class=\"title\">&&</a>",
+"搜索副标题":"<div class=\"ribbon-top-left\">&&</div>",
+"搜索图片":"data-original=\"&&\"",
+"搜索链接":"href=\"&&\"",
+  
+"播放数组":"class=\"item line\">&&</div>",
+"影片类型":"<p class=\"sub-title\">&&</p>",
+"简介":"<div class=\"header-left\">&&</div>",
+"播放列表":"<a&&/a>",
+"播放标题":">&&<",
+"播放链接":"href=\"&&\"",
+"免嗅":"0"
+}
