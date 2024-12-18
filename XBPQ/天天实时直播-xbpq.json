@@ -1,13 +1,10 @@
-// 发布页:https://yyrzb.vip/
 {
 "请求头": "手机",
 "播放请求头": "手机",
 "站名":"实时直播",
-//"主页url":"https://yyrav3.cc/",
-  "主页url":"https://ttszb10.com/",
-//"分类url":"https://yyrav3.cc/live/?jj={cateId}.html",
- "分类url":"https://ttszb10.com/?vip={cateId}.html", 
-"分类":"国产直播$xxj/zb/kwy#亚洲直播$yzzb/zb/gwzb#中文直播$yzzb/zb/cnzb#日本直播$yzzb/zb/ryzb#越南直播$yzzb/zb/yyzb#欧美直播$yzzb/zb/omzb#俄罗斯直播$yzzb/zb/egzb#乌克兰直播$yzzb/zb/wkl",
+  "主页url":"https://ttszb9.com/",
+ "分类url":"https://ttszb9.com/?vip={cateId}.html", 
+"分类":"国产直播$xxj/zb/love#亚洲直播$yzzb/zb/gwzb#中文直播$yzzb/zb/cnzb#日本直播$yzzb/zb/ryzb#越南直播$yzzb/zb/yyzb#欧美直播$yzzb/zb/omzb#俄罗斯直播$yzzb/zb/egzb#乌克兰直播$yzzb/zb/wkl",
 
 "数组":"<a style&&</a>",
 "标题":"title=\"&&\"",
@@ -20,10 +17,6 @@
 "播放数组": "body&&/body",
 "播放列表": "<iframe&&</iframe[替换:wap>>空#iso>>_auto.m3u8]",
 "播放标题": "直播",
-  
-//"跳转播放链接": "亚洲直播--php?url=&&\">+_auto.m3u8||新香蕉直播--php?url=&&\">",
-//"播放链接": "默认--php?url=&&\">+_auto.m3u8||新香蕉直播--php?url=&&\">",
-//"播放链接": "src=\"&&\"",
   
 "播放链接": "php?url=&&\">+/zb/&&.php",
 
