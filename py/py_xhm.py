@@ -101,7 +101,7 @@ class Spider(Spider):
                     'vod_year': f'videos:{i.get("videoCount")}',
                     'vod_tag': 'folder',
                     'vod_remarks': f'subscribers:{i["subscriptionModel"].get("subscribers")}',
-                    'style': {'ratio': 0.8, 'type': 'rect'}
+                    'style': {'ratio': 1.33, 'type': 'rect'}
                 })
         elif tid == '/categories':
             result['pagecount'] = pg
@@ -113,7 +113,7 @@ class Spider(Spider):
                     'vod_name': i.get('name'),
                     'vod_pic': '',
                     'vod_tag': 'folder',
-                    'style': {'ratio': 0.8, 'type': 'rect'}
+                    'style': {'ratio': 1.33, 'type': 'rect'}
                 })
         elif tid == '/pornstars':
             data = self.getpq(f'{tid}/{pg}')
@@ -125,7 +125,7 @@ class Spider(Spider):
                     'vod_pic': i.get('imageThumbUrl'),
                     'vod_remarks': i.get('translatedCountryName'),
                     'vod_tag': 'folder',
-                    'style': {'ratio': 0.8, 'type': 'rect'}
+                    'style': {'ratio': 1.33, 'type': 'rect'}
                 })
         elif 'one_click' in tid:
             result['pagecount'] = pg
@@ -138,7 +138,7 @@ class Spider(Spider):
                             'vod_name': j.get('name'),
                             'vod_pic': j.get('thumb'),
                             'vod_tag': 'folder',
-                            'style': {'ratio': 0.8, 'type': 'rect'}
+                            'style': {'ratio': 1.33, 'type': 'rect'}
                         })
         result['list'] = vdata
         return result
@@ -164,13 +164,19 @@ class Spider(Spider):
             plist = []
             d = djs['xplayerSettings']['sources']
             f = d.get('standard')
+            def custom_sort_key(item):
+                prefix = item.split("$")[0]
+                if prefix.isdigit():
+                    return 0, int(prefix)
+                else:
+                    return 1, prefix
             if f:
                 for key, value in f.items():
                     if isinstance(value, list):
                         for info in value:
                             id = self.e64(f'{0}@@@@{info.get("url") or info.get("fallback")}')
                             plist.append(f"{info.get('label') or info.get('quality')}${id}")
-                            
+            plist.sort(key=custom_sort_key)
             if d.get('hls'):
                 for format_type, info in d['hls'].items():
                     if url := info.get('url'):
@@ -180,7 +186,7 @@ class Spider(Spider):
         except Exception as e:
             plist = [f"{vn}${self.e64(f'{1}@@@@{ids[0]}')}"]
             print(f"获取视频信息失败: {str(e)}")
-        vod['vod_play_url'] = '#'.join(plist.sort(reverse=True))
+        vod['vod_play_url'] = '#'.join(plist)
         return {'list': [vod]}
 
     def searchContent(self, key, quick, pg="1"):
@@ -245,7 +251,7 @@ class Spider(Spider):
                 'vod_pic': i('.role-pop img').attr('src'),
                 'vod_year': i('.video-thumb-info .video-thumb-views').text().split(' ')[0],
                 'vod_remarks': i('.role-pop div[data-role="video-duration"]').text(),
-                'style': {'ratio': 0.8, 'type': 'rect'}
+                'style': {'ratio': 1.33, 'type': 'rect'}
             })
         return vlist
 
