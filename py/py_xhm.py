@@ -164,24 +164,23 @@ class Spider(Spider):
             plist = []
             d = djs['xplayerSettings']['sources']
             f = d.get('standard')
-            ah=[]
+            if f:
+                for key, value in f.items():
+                    if isinstance(value, list):
+                        for info in value:
+                            id = self.e64(f'{0}@@@@{info.get("url") or info.get("fallback")}')
+                            plist.append(f"{info.get('label') or info.get('quality')}${id}")
+                            
             if d.get('hls'):
                 for format_type, info in d['hls'].items():
                     if url := info.get('url'):
                         encoded = self.e64(f'{0}@@@@{url}')
                         plist.append(f"{format_type}${encoded}")
-            if f:
-                for key, value in f.items():
-                    if isinstance(value, list):
-                        ah.extend(value)
-            if len(ah):
-                for info in ah:
-                    id = self.e64(f'{0}@@@@{info.get("url") or info.get("fallback")}')
-                    plist.append(f"{info.get('label') or info.get('quality')}${id}")
+                        
         except Exception as e:
             plist = [f"{vn}${self.e64(f'{1}@@@@{ids[0]}')}"]
             print(f"获取视频信息失败: {str(e)}")
-        vod['vod_play_url'] = '#'.join(plist)
+        vod['vod_play_url'] = '#'.join(plist.sort(reverse=True))
         return {'list': [vod]}
 
     def searchContent(self, key, quick, pg="1"):
