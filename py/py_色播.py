@@ -23,7 +23,7 @@ class Spider(Spider):
 				"vod_pic": item['xinimg'].replace("http://cdn.gcufbd.top/img/",
 												  "https://slink.ltd/https://raw.githubusercontent.com/fish2018/lib/refs/heads/main/imgs/"),
 				"vod_remarks": item['Number'],
-				"style": {"type": "rect", "ratio": 1.33}
+				"style": {"type": "rect", "ratio": 0.8}
 			} for item in sorted(data, key=lambda x: int(x['Number']), reverse=True)
 		]
 		result = {
