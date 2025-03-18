@@ -78,11 +78,7 @@ class Spider(Spider):
     def detailContent(self, ids):
         url=f"{self.host}{ids[0]}"
         data=self.getpq(self.fetch(url, headers=self.headers).text)
-        vod = {
-            'vod_content': data('.post-title').text(),
-            'vod_play_from': '51吸瓜',
-            'vod_play_url': f"请停止活塞运动，可能没有视频${url}"
-        }
+        vod = {'vod_play_from': '51吸瓜'}
         try:
             clist = []
             if data('.tags .keywords a'):
@@ -92,7 +88,7 @@ class Spider(Spider):
                     clist.append('[a=cr:' + json.dumps({'id': href, 'name': title}) + '/]' + title + '[/a]')
             vod['vod_content'] = ' '.join(clist)
         except:
-            pass
+            vod['vod_content'] = data('.post-title').text()
         try:
             plist=[]
             if data('.dplayer'):
@@ -101,7 +97,7 @@ class Spider(Spider):
                     plist.append(f"视频{c}${config['video']['url']}")
             vod['vod_play_url']='#'.join(plist)
         except:
-            pass
+            vod['vod_play_url']=f"请停止活塞运动，可能没有视频${url}"
         return {'list':[vod]}
 
     def searchContent(self, key, quick, pg="1"):
@@ -134,10 +130,10 @@ class Spider(Spider):
         html_pattern = r"Base64\.decode\('([^']+)'\)"
         html_match = re.search(html_pattern, html('script').eq(-1).text(), re.DOTALL)
         if not html_match:
-            raise Exception("未找到html_match")
+            raise Exception("未找到html")
         html = b64decode(html_match.group(1)).decode()
         words_pattern = r"words\s*=\s*'([^']+)'"
-        words_match = re.search(words_pattern, html)
+        words_match = re.search(words_pattern, html, re.DOTALL)
         if not words_match:
             raise Exception("未找到words")
         words = words_match.group(1).split(',')

@@ -1,6 +1,5 @@
-# coding=utf-8
-# !/usr/bin/python
-# by嗷呜
+# -*- coding: utf-8 -*-
+# by @嗷呜
 import json
 import random
 import sys

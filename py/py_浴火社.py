@@ -1,6 +1,5 @@
-# coding=utf-8
-# !/usr/bin/python
-# by嗷呜
+# -*- coding: utf-8 -*-
+# by @嗷呜
 import json
 import re
 import sys
@@ -38,7 +37,7 @@ class Spider(Spider):
     def destroy(self):
         pass
 
-    host = 'lulu-api-8pjj9g.ggpfi.com'
+    host = 'https://lulu-api-92mizw.jcdwn.com'
 
     headers = {
         'User-Agent': 'okhttp/4.11.0',

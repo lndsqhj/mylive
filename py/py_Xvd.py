@@ -1,6 +1,5 @@
-# coding=utf-8
-# !/usr/bin/python
-# by嗷呜
+# -*- coding: utf-8 -*-
+# by @嗷呜
 import json
 import re
 import sys
@@ -12,7 +11,6 @@ from base.spider import Spider
 
 
 class Spider(Spider):
-
     def init(self, extend=""):
         self.headers['referer']=f'{self.host}/'
         self.session = Session()
