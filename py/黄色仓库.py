@@ -11,7 +11,7 @@ sys.path.append('..')
 headerx = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36",
     }
-url = "http://666896.xyz/?u=http://hsck597.cc//&p="
+url = "http://666896.xyz/?u=http://6367ck.cc//&p="
 response = requests.get(url,headers=headerx,allow_redirects=False)
 xurl = response.headers.get("Location")
 res = requests.get(xurl, headers=headerx)
