@@ -3,19 +3,55 @@
 import json
 import re
 import sys
-from pyquery import PyQuery as pq
 from base64 import b64decode, b64encode
+from urllib.parse import urlparse
+
+import requests
+from pyquery import PyQuery as pq
 from requests import Session
 sys.path.append('..')
 from base.spider import Spider
 
-
 class Spider(Spider):
 
     def init(self, extend=""):
-        self.host=self.gethost()
-        self.headers['referer']=f'{self.host}/'
+        '''
+        内置代理配置：真心jar为例
+        {
+            "key": "Phb",
+            "name": "Phb",
+            "type": 3,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "api": "./py/Phb.py",
+            "ext": {
+                "http": "http://127.0.0.1:1072",
+                "https": "http://127.0.0.1:1072"
+            }
+        },
+        注：http(s)代理都是http
+        '''
+        try:self.proxies = json.loads(extend)
+        except:self.proxies = {}
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5410.0 Safari/537.36',
+            'pragma': 'no-cache',
+            'cache-control': 'no-cache',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-ch-ua': '"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"',
+            'dnt': '1',
+            'sec-ch-ua-mobile': '?0',
+            'sec-fetch-site': 'cross-site',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-dest': 'empty',
+            'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+            'priority': 'u=1, i',
+        }
+        self.host = self.gethost()
+        self.headers.update({'referer': f'{self.host}/', 'origin': self.host})
         self.session = Session()
+        self.session.proxies.update(self.proxies)
         self.session.headers.update(self.headers)
         pass
 
@@ -30,27 +66,6 @@ class Spider(Spider):
 
     def destroy(self):
         pass
-
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'sec-ch-ua': '"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-full-version': '"133.0.6943.98"',
-        'sec-ch-ua-arch': '"x86"',
-        'sec-ch-ua-platform': '"Windows"',
-        'sec-ch-ua-platform-version': '"19.0.0"',
-        'sec-ch-ua-model': '""',
-        'sec-ch-ua-full-version-list': '"Not(A:Brand";v="99.0.0.0", "Google Chrome";v="133.0.6943.98", "Chromium";v="133.0.6943.98"',
-        'dnt': '1',
-        'upgrade-insecure-requests': '1',
-        'sec-fetch-site': 'none',
-        'sec-fetch-mode': 'navigate',
-        'sec-fetch-user': '?1',
-        'sec-fetch-dest': 'document',
-        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
-        'priority': 'u=0, i'
-    }
 
     def homeContent(self, filter):
         result = {}
@@ -75,7 +90,7 @@ class Spider(Spider):
     def homeVideoContent(self):
         data = self.getpq('/recommended')
         vhtml = data("#recommendedListings .pcVideoListItem .phimage")
-        return {'list':self.getlist(vhtml)}
+        return {'list': self.getlist(vhtml)}
 
     def categoryContent(self, tid, pg, filter, extend):
         vdata = []
@@ -84,95 +99,96 @@ class Spider(Spider):
         result['pagecount'] = 9999
         result['limit'] = 90
         result['total'] = 999999
-        if tid=='/video' or '_this_video' in tid:
+        if tid == '/video' or '_this_video' in tid:
             pagestr = f'&' if '?' in tid else f'?'
-            tid=tid.split('_this_video')[0]
-            data=self.getpq(f'{tid}{pagestr}page={pg}')
-            vdata=self.getlist(data('#videoCategory .pcVideoListItem'))
+            tid = tid.split('_this_video')[0]
+            data = self.getpq(f'{tid}{pagestr}page={pg}')
+            vdata = self.getlist(data('#videoCategory .pcVideoListItem'))
         elif tid == '/playlists':
-            data=self.getpq(f'{tid}?page={pg}')
-            vhtml=data('#playListSection li')
+            data = self.getpq(f'{tid}?page={pg}')
+            vhtml = data('#playListSection li')
             vdata = []
             for i in vhtml.items():
                 vdata.append({
                     'vod_id': 'playlists_click_' + i('.thumbnail-info-wrapper .display-block a').attr('href'),
                     'vod_name': i('.thumbnail-info-wrapper .display-block a').attr('title'),
-                    'vod_pic': i('.largeThumb').attr('src'),
+                    'vod_pic': self.proxy(i('.largeThumb').attr('src')),
                     'vod_tag': 'folder',
                     'vod_remarks': i('.playlist-videos .number').text(),
                     'style': {"type": "rect", "ratio": 1.33}
                 })
-        elif tid=='/channels':
-            data=self.getpq(f'{tid}?o=rk&page={pg}')
-            vhtml=data('#filterChannelsSection li .description')
-            vdata=[]
+        elif tid == '/channels':
+            data = self.getpq(f'{tid}?o=rk&page={pg}')
+            vhtml = data('#filterChannelsSection li .description')
+            vdata = []
             for i in vhtml.items():
                 vdata.append({
-                    'vod_id': 'director_click_'+i('.avatar a').attr('href'),
+                    'vod_id': 'director_click_' + i('.avatar a').attr('href'),
                     'vod_name': i('.avatar img').attr('alt'),
-                    'vod_pic': i('.avatar img').attr('src'),
-                    'vod_tag':'folder',
+                    'vod_pic': self.proxy(i('.avatar img').attr('src')),
+                    'vod_tag': 'folder',
                     'vod_remarks': i('.descriptionContainer ul li').eq(-1).text(),
-                    'style':{"type": "rect", "ratio": 1.33}
+                    'style': {"type": "rect", "ratio": 1.33}
                 })
-        elif tid=='/categories' and pg=='1':
+        elif tid == '/categories' and pg == '1':
             result['pagecount'] = 1
-            data=self.getpq(f'{tid}')
-            vhtml=data('.categoriesListSection li .relativeWrapper')
-            vdata=[]
+            data = self.getpq(f'{tid}')
+            vhtml = data('.categoriesListSection li .relativeWrapper')
+            vdata = []
             for i in vhtml.items():
                 vdata.append({
-                    'vod_id': i('a').attr('href')+'_this_video',
+                    'vod_id': i('a').attr('href') + '_this_video',
                     'vod_name': i('a').attr('alt'),
-                    'vod_pic': i('a img').attr('src'),
-                    'vod_tag':'folder',
-                    'style':{"type": "rect", "ratio": 1.33}
+                    'vod_pic': self.proxy(i('a img').attr('src')),
+                    'vod_tag': 'folder',
+                    'style': {"type": "rect", "ratio": 1.33}
                 })
-        elif tid=='/pornstars':
-            data=self.getpq(f'{tid}?o=t&page={pg}')
-            vhtml=data('#popularPornstars .performerCard .wrap')
-            vdata=[]
+        elif tid == '/pornstars':
+            data = self.getpq(f'{tid}?o=t&page={pg}')
+            vhtml = data('#popularPornstars .performerCard .wrap')
+            vdata = []
             for i in vhtml.items():
                 vdata.append({
-                    'vod_id': 'pornstars_click_'+i('a').attr('href'),
+                    'vod_id': 'pornstars_click_' + i('a').attr('href'),
                     'vod_name': i('.performerCardName').text(),
-                    'vod_pic': i('a img').attr('src'),
-                    'vod_tag':'folder',
-                    'vod_year':i('.performerVideosViewsCount span').eq(0).text(),
+                    'vod_pic': self.proxy(i('a img').attr('src')),
+                    'vod_tag': 'folder',
+                    'vod_year': i('.performerVideosViewsCount span').eq(0).text(),
                     'vod_remarks': i('.performerVideosViewsCount span').eq(-1).text(),
-                    'style':{"type": "rect", "ratio": 1.33}
+                    'style': {"type": "rect", "ratio": 1.33}
                 })
         elif 'playlists_click' in tid:
-            tid=tid.split('click_')[-1]
-            if pg=='1':
-                hdata=self.getpq(tid)
-                self.token=hdata('#searchInput').attr('data-token')
+            tid = tid.split('click_')[-1]
+            if pg == '1':
+                hdata = self.getpq(tid)
+                self.token = hdata('#searchInput').attr('data-token')
                 vdata = self.getlist(hdata('#videoPlaylist .pcVideoListItem .phimage'))
             else:
-                tid=tid.split('playlist/')[-1]
-                data=self.getpq(f'/playlist/viewChunked?id={tid}&token={self.token}&page={pg}')
-                vdata=self.getlist(data('.pcVideoListItem .phimage'))
+                tid = tid.split('playlist/')[-1]
+                data = self.getpq(f'/playlist/viewChunked?id={tid}&token={self.token}&page={pg}')
+                vdata = self.getlist(data('.pcVideoListItem .phimage'))
         elif 'director_click' in tid:
-            tid=tid.split('click_')[-1]
-            data=self.getpq(f'{tid}/videos?page={pg}')
-            vdata=self.getlist(data('#showAllChanelVideos .pcVideoListItem .phimage'))
+            tid = tid.split('click_')[-1]
+            data = self.getpq(f'{tid}/videos?page={pg}')
+            vdata = self.getlist(data('#showAllChanelVideos .pcVideoListItem .phimage'))
         elif 'pornstars_click' in tid:
-            tid=tid.split('click_')[-1]
-            data=self.getpq(f'{tid}/videos?page={pg}')
-            vdata=self.getlist(data('#mostRecentVideosSection .pcVideoListItem .phimage'))
+            tid = tid.split('click_')[-1]
+            data = self.getpq(f'{tid}/videos?page={pg}')
+            vdata = self.getlist(data('#mostRecentVideosSection .pcVideoListItem .phimage'))
         result['list'] = vdata
         return result
 
     def detailContent(self, ids):
         url = f"{self.host}{ids[0]}"
         data = self.getpq(ids[0])
-        vn=data('meta[property="og:title"]').attr('content')
-        dtext=data('.userInfo .usernameWrap a')
-        pdtitle = '[a=cr:' + json.dumps({'id': 'director_click_'+dtext.attr('href'), 'name': dtext.text()}) + '/]' + dtext.text() + '[/a]'
+        vn = data('meta[property="og:title"]').attr('content')
+        dtext = data('.userInfo .usernameWrap a')
+        pdtitle = '[a=cr:' + json.dumps(
+            {'id': 'director_click_' + dtext.attr('href'), 'name': dtext.text()}) + '/]' + dtext.text() + '[/a]'
         vod = {
             'vod_name': vn,
-            'vod_director':pdtitle,
-            'vod_remarks': (data('.userInfo').text()+' / '+data('.ratingInfo').text()).replace('\n',' / '),
+            'vod_director': pdtitle,
+            'vod_remarks': (data('.userInfo').text() + ' / ' + data('.ratingInfo').text()).replace('\n', ' / '),
             'vod_play_from': 'Pornhub',
             'vod_play_url': ''
         }
@@ -192,38 +208,51 @@ class Spider(Spider):
         except Exception as e:
             print(f"提取mediaDefinitions失败: {str(e)}")
         vod['vod_play_url'] = '#'.join(plist)
-        return {'list':[vod]}
+        return {'list': [vod]}
 
     def searchContent(self, key, quick, pg="1"):
-        data=self.getpq(f'/video/search?search={key}&page={pg}')
-        return {'list':self.getlist(data('#videoSearchResult .pcVideoListItem .phimage'))}
+        data = self.getpq(f'/video/search?search={key}&page={pg}')
+        return {'list': self.getlist(data('#videoSearchResult .pcVideoListItem .phimage'))}
 
     def playerContent(self, flag, id, vipFlags):
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5410.0 Safari/537.36',
-            'pragma': 'no-cache',
-            'cache-control': 'no-cache',
-            'sec-ch-ua-platform': '"Windows"',
-            'sec-ch-ua': '"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"',
-            'dnt': '1',
-            'sec-ch-ua-mobile': '?0',
-            'origin': self.host,
-            'sec-fetch-site': 'cross-site',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-dest': 'empty',
-            'referer': f'{self.host}/',
-            'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'priority': 'u=1, i',
-        }
-        ids=self.d64(id).split('@@@@')
-        return {'parse': int(ids[0]), 'url': ids[1], 'header': headers}
+        ids = self.d64(id).split('@@@@')
+        if '.m3u8' in ids[1]: ids[1] = self.proxy(ids[1], 'm3u8')
+        return {'parse': int(ids[0]), 'url': ids[1], 'header': self.headers}
 
     def localProxy(self, param):
-        pass
+        url = self.d64(param.get('url'))
+        if param.get('type') == 'm3u8':
+            return self.m3Proxy(url)
+        else:
+            return self.tsProxy(url)
+
+    def m3Proxy(self, url):
+        ydata = requests.get(url, headers=self.headers, proxies=self.proxies, allow_redirects=False)
+        data = ydata.content.decode('utf-8')
+        if ydata.headers.get('Location'):
+            url = ydata.headers['Location']
+            data = requests.get(url, headers=self.headers, proxies=self.proxies).content.decode('utf-8')
+        lines = data.strip().split('\n')
+        last_r = url[:url.rfind('/')]
+        parsed_url = urlparse(url)
+        durl = parsed_url.scheme + "://" + parsed_url.netloc
+        for index, string in enumerate(lines):
+            if '#EXT' not in string:
+                if 'http' not in string:
+                    domain = last_r if string.count('/') < 2 else durl
+                    string = domain + ('' if string.startswith('/') else '/') + string
+                lines[index] = self.proxy(string, string.split('.')[-1].split('?')[0])
+        data = '\n'.join(lines)
+        return [200, "application/vnd.apple.mpegur", data]
+
+    def tsProxy(self, url):
+        data = requests.get(url, headers=self.headers, proxies=self.proxies, stream=True)
+        return [200, data.headers['Content-Type'], data.content]
 
     def gethost(self):
         try:
-            response = self.fetch('https://www.pornhub.com',headers=self.headers,allow_redirects=False)
+            response = requests.get('https://www.pornhub.com', headers=self.headers, proxies=self.proxies,
+                                    allow_redirects=False)
             return response.headers['Location'][:-1]
         except Exception as e:
             print(f"获取主页失败: {str(e)}")
@@ -238,7 +267,7 @@ class Spider(Spider):
             print(f"Base64编码错误: {str(e)}")
             return ""
 
-    def d64(self,encoded_text):
+    def d64(self, encoded_text):
         try:
             encoded_bytes = encoded_text.encode('utf-8')
             decoded_bytes = b64decode(encoded_bytes)
@@ -248,12 +277,12 @@ class Spider(Spider):
             return ""
 
     def getlist(self, data):
-        vlist=[]
+        vlist = []
         for i in data.items():
             vlist.append({
                 'vod_id': i('a').attr('href'),
                 'vod_name': i('a').attr('title'),
-                'vod_pic': i('img').attr('src'),
+                'vod_pic': self.proxy(i('img').attr('src')),
                 'vod_remarks': i('.bgShadeEffect').text() or i('.duration').text(),
                 'style': {'ratio': 1.33, 'type': 'rect'}
             })
@@ -266,3 +295,7 @@ class Spider(Spider):
         except Exception as e:
             print(f"请求失败: , {str(e)}")
             return None
+
+    def proxy(self, data, type='img'):
+        if data and len(self.proxies):return f"{self.getProxyUrl()}&url={self.e64(data)}&type={type}"
+        else:return data
