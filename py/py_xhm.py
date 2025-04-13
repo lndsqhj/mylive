@@ -125,7 +125,7 @@ class Spider(Spider):
                     'vod_pic': self.proxy(i.get('imageThumbUrl')),
                     'vod_remarks': i.get('translatedCountryName'),
                     'vod_tag': 'folder',
-                    'style': {'ratio': 1.33, 'type': 'rect'}
+                    'style': {'ratio': 0.8, 'type': 'rect'}
                 })
         elif 'one_click' in tid:
             result['pagecount'] = pg
@@ -138,7 +138,7 @@ class Spider(Spider):
                             'vod_name': j.get('name'),
                             'vod_pic': self.proxy(j.get('thumb')),
                             'vod_tag': 'folder',
-                            'style': {'ratio': 1.33, 'type': 'rect'}
+                            'style': {'ratio': 0.8, 'type': 'rect'}
                         })
         result['list'] = vdata
         return result
@@ -241,7 +241,7 @@ class Spider(Spider):
                 'vod_pic': self.proxy(i('.role-pop img').attr('src')),
                 'vod_year': i('.video-thumb-info .video-thumb-views').text().split(' ')[0],
                 'vod_remarks': i('.role-pop div[data-role="video-duration"]').text(),
-                'style': {'ratio': 1.33, 'type': 'rect'}
+                'style': {'ratio': 0.8, 'type': 'rect'}
             })
         return vlist
 
