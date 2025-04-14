@@ -93,7 +93,7 @@ class Spider(Spider):
                         'vod_pic': i.xpath('./img/@src')[0],
                         'vod_remarks': vod_remarks[0] if vod_remarks else '',
                         'vod_year': vod_year[0] if vod_year else '',
-                        'style': {"type": "rect", "ratio": 1.5}
+                        'style': {"type": "rect", "ratio": 0.8}
                     }
                 )
             return {'list': a, 'parse': 0, 'jx': 0}
