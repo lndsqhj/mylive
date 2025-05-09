@@ -30,15 +30,14 @@ class Spider(Spider):
         '''
         try:
             ext=json.loads(extend)
-            self.host,self.pcf=ext.get('site',''),ext.get('cfproxy','')
+            self.host,self.pcf,self.phost=ext.get('site',''),ext.get('cfproxy',''),''
+            if self.pcf:
+                parsed_url=urlparse(self.pcf)
+                self.phost=parsed_url.scheme + "://" + parsed_url.netloc
         except:
             pass
         self.headers = {
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'origin':self.host,
             'referer': f'{self.host}',
-            'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="130", "Google Chrome";v="130"',
             'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36'
         }
         pass
@@ -171,18 +170,28 @@ class Spider(Spider):
     def localProxy(self, param):
         pass
 
-    def getpq(self, url, headers=None,params=None,min=0,max=3):
-        url=urlunparse(urlparse(self.host)._replace(path=urlparse(url).path))
-        response=self.fetch(f"{self.pcf}{url}", headers=headers,params=params,verify=False)
+    def josn_to_params(self, params, skip_empty=False):
+        query = []
+        for k, v in params.items():
+            if skip_empty and not v:
+                continue
+            query.append(f"{k}={v}")
+        return "&".join(query)
+
+    def getpq(self, url, headers=None,params='',min=0,max=3):
+        if not min and self.phost in url:
+            url=url.replace(self.phost,self.host)
+        if params=={}:params=''
+        if params:
+            params=f"?{self.josn_to_params(params)}"
+        response=self.fetch(f"{self.pcf}{url}{params}", headers=headers,verify=False)
         res=response.text
         if 300 <= response.status_code < 400:
             if min >= max:raise Exception(f"重定向次数过多: {res}")
             match = re.search(r"url=['\"](https?://[^'\"]+)['\"]", res)
             if match:
-                url = match.group(1)
-                parsed = urlparse(url)
-                path = parsed.path
-                return self.getpq(f"{self.host}{path}", headers=headers,params=params,min=min+1,max=max)
+                url = match.group(1).replace(self.phost, self.host)
+                return self.getpq(url, headers=headers,params='',min=min+1,max=max)
         try:
             return pq(res)
         except Exception as e:
