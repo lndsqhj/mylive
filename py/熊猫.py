@@ -7,7 +7,7 @@ import re
 from base.spider import Spider
 import json
 sys.path.append('..')
-xurl = "https://ee55ff.com/video.html"
+xurl = "https://www.kkmm77.com/video.html"
 headerx = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36'
 }
